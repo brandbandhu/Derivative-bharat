@@ -403,7 +403,7 @@ export default function HomeFeed() {
               </div>
               <div className="rounded-2xl border border-amber-200 bg-stone-50/90 p-3">
                 <p className="text-xs uppercase tracking-[0.16em] text-amber-700">WhatsApp</p>
-                <p className="mt-1 font-semibold">+91 90000 11122</p>
+                <p className="mt-1 font-semibold">9699369117</p>
               </div>
             </div>
           </div>
@@ -441,7 +441,7 @@ export default function HomeFeed() {
                 </span>
                 <input
                   type="tel"
-                  placeholder="+91"
+                  placeholder="9699369117"
                   className="mt-2 w-full rounded-xl border border-stone-200 bg-white px-3 py-2 text-sm outline-none ring-yellow-600 transition focus:ring-2"
                 />
               </label>

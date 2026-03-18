@@ -43,7 +43,7 @@ export default function Footer() {
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-amber-800">Support</p>
           <ul className="mt-3 space-y-2 text-sm text-amber-900">
             <li>help@derivativebharat.in</li>
-            <li>+91 11 4600 2200</li>
+            <li>9699369117</li>
             <li>Mon-Sat | 9:00 AM - 8:00 PM IST</li>
           </ul>
         </div>
