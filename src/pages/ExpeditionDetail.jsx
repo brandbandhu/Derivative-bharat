@@ -17,18 +17,13 @@ import { getExpeditionById } from "../data/expeditionData";
 
 function MediaGallery({ images, title }) {
   return (
-    <section className="grid gap-3 md:grid-cols-4 md:grid-rows-2">
-      <img
-        src={images[0]}
-        alt={`${title} hero`}
-        className="h-72 w-full rounded-3xl object-cover md:col-span-2 md:row-span-2 md:h-full"
-      />
-      {images.slice(1, 4).map((image, index) => (
+    <section className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+      {images.slice(0, 4).map((image, index) => (
         <img
-          key={image}
+          key={`${image}-${index}`}
           src={image}
           alt={`${title} gallery ${index + 1}`}
-          className="h-44 w-full rounded-2xl object-cover md:h-full"
+          className="h-64 w-full rounded-3xl object-cover sm:h-56 lg:h-64"
         />
       ))}
     </section>
@@ -163,7 +158,6 @@ function ExpeditionDetailContent({ expedition }) {
 
         <StickyBookingWidget
           duration={expedition.duration}
-          pricePerAdult={expedition.pricePerAdult}
           groupSize={expedition.groupSize}
           seatsLeft={expedition.seatsLeft}
           nextDeparture={expedition.nextDeparture}

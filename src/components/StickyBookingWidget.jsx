@@ -29,14 +29,6 @@ function Stepper({ label, value, onDecrease, onIncrease, minValue = 0 }) {
   );
 }
 
-function formatINR(value) {
-  return new Intl.NumberFormat("en-IN", {
-    style: "currency",
-    currency: "INR",
-    maximumFractionDigits: 0,
-  }).format(value);
-}
-
 function formatDate(value) {
   return new Intl.DateTimeFormat("en-IN", {
     day: "numeric",
@@ -45,22 +37,9 @@ function formatDate(value) {
   }).format(new Date(value));
 }
 
-export default function StickyBookingWidget({
-  duration,
-  pricePerAdult,
-  groupSize,
-  seatsLeft,
-  nextDeparture,
-}) {
-  const {
-    selectedDate,
-    setSelectedDate,
-    adults,
-    setAdults,
-    childrenCount,
-    setChildrenCount,
-    totalPrice,
-  } = useBooking();
+export default function StickyBookingWidget({ duration, groupSize, seatsLeft, nextDeparture }) {
+  const { selectedDate, setSelectedDate, adults, setAdults, childrenCount, setChildrenCount } =
+    useBooking();
 
   const totalGuests = adults + childrenCount;
   const seatsExceeded = totalGuests > seatsLeft;
@@ -74,11 +53,11 @@ export default function StickyBookingWidget({
       </div>
 
       <div className="border-b border-stone-200 pb-4">
-        <p className="text-sm text-amber-800">Total Price</p>
+        <p className="text-sm text-amber-800">Pricing</p>
         <p className="mt-1 font-[Playfair_Display] text-3xl leading-tight text-amber-950">
-          {formatINR(totalPrice)}
+          Available on request
         </p>
-        <p className="text-xs text-amber-800/80">{duration} | Taxes included</p>
+        <p className="text-xs text-amber-800/80">{duration} | Group departures only</p>
       </div>
 
       <div className="mt-4 rounded-xl bg-stone-100 p-3 text-xs text-amber-900">
@@ -120,8 +99,7 @@ export default function StickyBookingWidget({
       </div>
 
       <div className="mt-4 rounded-xl bg-stone-100 p-3 text-xs text-amber-900">
-        <p>{formatINR(pricePerAdult)} per adult</p>
-        <p>Children billed at 65% of adult fare</p>
+        <p>Exact pricing shared after your dates are confirmed.</p>
       </div>
 
       {seatsExceeded ? (

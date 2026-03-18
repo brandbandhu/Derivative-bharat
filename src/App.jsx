@@ -1,11 +1,14 @@
+import { useEffect } from "react";
 import { Link, Route, Routes, useLocation } from "react-router-dom";
 import {
-  Castle,
   Handshake,
-  Landmark,
-  Shield,
+  Leaf,
+  Mountain,
+  PawPrint,
+  Route as RouteIcon,
+  Sailboat,
   User,
-  UtensilsCrossed,
+  Waves,
 } from "lucide-react";
 import Footer from "./components/Footer";
 import ExpeditionDetail from "./pages/ExpeditionDetail";
@@ -16,10 +19,12 @@ function Header() {
   const { pathname } = useLocation();
 
   const categories = [
-    { icon: Castle, label: "Forts" },
-    { icon: Landmark, label: "Temples" },
-    { icon: UtensilsCrossed, label: "Culinary" },
-    { icon: Shield, label: "Battlefields" },
+    { icon: Mountain, label: "Hill Stations" },
+    { icon: Waves, label: "Coastal" },
+    { icon: PawPrint, label: "Wildlife" },
+    { icon: RouteIcon, label: "Road Trips" },
+    { icon: Leaf, label: "Rainforests" },
+    { icon: Sailboat, label: "Backwaters" },
   ];
 
   return (
@@ -83,9 +88,20 @@ function Header() {
   );
 }
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
   return (
     <div className="min-h-screen bg-stone-50 font-[Inter] text-amber-950">
+      <ScrollToTop />
       <Header />
       <Routes>
         <Route path="/" element={<HomeFeed />} />
